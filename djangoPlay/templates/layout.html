@@ -1,3 +1,4 @@
+{% load static tailwind_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,7 @@
         Default Title
         {% endblock %}
     </title>
+    {% tailwind_css %}
     <link rel="stylesheet" href="{% static "style.css" %}">
 </head>
 <body>
