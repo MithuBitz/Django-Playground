@@ -130,6 +130,10 @@ STATIC_URL = 'static/'
 #To load the style.css from static folder
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+#To work with Pillow
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

@@ -31,6 +31,23 @@
 - **Connect the project with tailwind** - First go to the settings.py file on root folder and then add 'tailwind' in INSTALLED_APPS list. then run a command to start the tailwind like ```python manage.py tailwind init``` and set the app name to default which is 'theme' and then add 'theme' in INSTALLED_APPS list of setting.py file. and then set the "TAILWIND_APP_NAME" as 'theme' and also set "INTERNAL_IPS" array as ['127.0.0.1] inside the settings.py file. and then istall tailwind by useing the command as: ```python manage.py tailwind install ```
 
 - **Run tailwind in django** - add this line of code in html file to activate the tailwind, ```{% load static tailwind_tags %}``` and ``` {% tailwind_css %} ```. After that use tailwind class and all to access those class. After all these we need to run two terminals, one of them start the tailwind by ```python manage.py tailwind start``` and in the other one runserver command is execute to run the server. and last we also need to add "NPM_BIN_PATH". For auto reloading reflect we need to add 'django_browser_reload' into 'INSTALLED_APPS' on settings.py, and also add 'django_browser_reload.middleware.BrowserReloadMiddleware' in 'MIDDLEWARE' on settings.py and also we need to add ```path("__reload__/", include("django_browser_reload.urls"))``` in urls.py file on the root directory.
+
+- **Migration error fix** - When we run a server we have some error like ```You have 18 unapplied migration(s).``` To solve this error we have many ways. The simple and easy one is just run a command like ```python manage.py migrate```.
   
+- **Create superuser for admin panal** - Python provide a precook admin panel in /admin url, its a great feature of django. To use it we need a superuser username and password, To create it simply run a command like ```python manage.py createsuperuser`` and then set the username and password and then with help of this credential we can use the admin panel.
+
+- **Change admin panel password** - If we forget our admin password then we can reset the password by running this command : ```python manage.py changepassword <user_name> ```
+  
+- **Models in Django** - We can only create model in the app level not in the project level. To create a model we need to modify on models.py We can decide what database we want to use by changeing the "DATABASE" field in settings.py. To know more on it just go the this page: [Django Databases](https://docs.djangoproject.com/en/5.1/ref/settings/#databases, 'DB in django'). If we want to change the db service from like sqlite to postgres then we dont need to change the code just change the "DATABASE" field in settings.py becoz there is ORM layer between code and db which take responsibility to change the connection.
+
+- **Create Models** - To create a model we need add a class into the models.py file. In the class we need model as a parameter and then add all fields which we want to add into the db. If we want to charecter field to add then we use CharField() and so on. 
+  
+- **Pillow with Django** - To work with medial files we need a package called Pillow to process it to install it just run this command: ```python -m pip install Pillow``` and then need to modify in settings.py by adding this two line: ```MEDIA_URL = '/media/'``` and ```MEDIA_ROOT = os.path.join(BASE_DIR, 'media')``` and then we need to modify the urls.py file by adding some code in "urlpatterns" like this ```] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)```
+  
+- **Link models with project** - After creating a model in an app we need to link it with the project or so to say migrate the app to the project by running this command: ```python manage.py makemigrations <app_name>``` where we need to write actual app name inside the app_name. After runnig this command some files like initial.py are created inside the 'migrations' folder inside the app. And then run this command: ```python manage.py migrate```. 
+  
+- **Superpower of admin panel in django** - Whenever we need to test a model and db connection between them we use a great feature of django called admin page. To do this in action first we need to add a line inside the admin.py file inside of an app like: ```admin.site.register(<model_class>)```
+
+
 --- 
 <p style= "color: blue">Tips: 1. Its great to use django extenstion to format the django and after install press Ctrl+, and  seach for emmet and find the include language and then add a item with item: django-html and value: html. This helps to geting the suggestion in templates file</p>
