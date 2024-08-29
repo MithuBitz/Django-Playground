@@ -15,6 +15,7 @@ class NamesList(models.Model):
     image = models.ImageField(upload_to='avatar/') # need to install Pillow to work
     add_time = models.DateTimeField(default= timezone.now)
     type = models.CharField(max_length=9, choices=NAME_TYPE_CHOICE, default="MB")
+    detail = models.TextField(default='')
 
     def __str__(self):
         return self.name

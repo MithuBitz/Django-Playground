@@ -48,6 +48,7 @@
   
 - **Superpower of admin panel in django** - Whenever we need to test a model and db connection between them we use a great feature of django called admin page. To do this in action first we need to add a line inside the admin.py file inside of an app like: ```admin.site.register(<model_class>)```
 
+- **Transfer data from db to frontend** - To fetch data from the db into views we need to import the model and from that model go to the objects then do operation like all, aggregate, etc for manipulating the data like to fetch all data from db ``` names = <model_name>.objects.all()``` and then send that data inside the render method. Now we can use this data to show on the page by declareing it in a block on template page.
 
 --- 
 <p style= "color: blue">Tips: 1. Its great to use django extenstion to format the django and after install press Ctrl+, and  seach for emmet and find the include language and then add a item with item: django-html and value: html. This helps to geting the suggestion in templates file</p>
