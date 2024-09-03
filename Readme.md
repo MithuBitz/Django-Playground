@@ -40,9 +40,9 @@
 - **Transfer data from db to frontend** - To fetch data from the db into views we need to import the model and from that model go to the objects then do operation like all, aggregate, etc for manipulating the data like to fetch all data from db ` names = <model_name>.objects.all()` and then send that data inside the render method. Now we can use this data to show on the page by declareing it in a block on template page.
 
 - **Relationship in models in sql** - There are many relationship between model, some of them are:
-  1. One to One : In one to one there is a single connection between two models like a name of developer has one certificate and a certificate has associate with one name of developer.
-  2. One to Many : In one to many connection between two models defines as like a name of developer has many review but a perticular unique review has only associated with a name only.
-  3. Many to Many : In many to many connection between two models defines as like in a Devloper community there are many names of developer and a developers names are included in many dev communities
+  1. One to One : In one to one there is a single connection between two models like a name of developer has one certificate and a certificate has associate with one name of developer. In one to one model need to use method called `OneToOneField()` which requires a model which we want to link with.
+  2. One to Many : In one to many connection between two models defines as like a name of developer has many review but a perticular unique review has only associated with a name only. In One to many relation we use `ForeignKey()` to link with the desire model
+  3. Many to Many : In many to many connection between two models defines as like in a Devloper community there are many names of developer and a developers names are included in many dev communities. In many to many we use `ManyToManyField()` to linked with desire model.
 
 ---
 
