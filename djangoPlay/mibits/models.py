@@ -49,4 +49,4 @@ class DevCertificate(models.Model):
     valid_untill = models.DateTimeField()
 
     def __str__(self) :
-        return f'Certificate for {self.name.dev_name}'
+        return f'Certificate for {self.dev_name}'

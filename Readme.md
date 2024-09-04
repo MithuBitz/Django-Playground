@@ -40,9 +40,21 @@
 - **Transfer data from db to frontend** - To fetch data from the db into views we need to import the model and from that model go to the objects then do operation like all, aggregate, etc for manipulating the data like to fetch all data from db ` names = <model_name>.objects.all()` and then send that data inside the render method. Now we can use this data to show on the page by declareing it in a block on template page.
 
 - **Relationship in models in sql** - There are many relationship between model, some of them are:
+
   1. One to One : In one to one there is a single connection between two models like a name of developer has one certificate and a certificate has associate with one name of developer. In one to one model need to use method called `OneToOneField()` which requires a model which we want to link with.
   2. One to Many : In one to many connection between two models defines as like a name of developer has many review but a perticular unique review has only associated with a name only. In One to many relation we use `ForeignKey()` to link with the desire model
   3. Many to Many : In many to many connection between two models defines as like in a Devloper community there are many names of developer and a developers names are included in many dev communities. In many to many we use `ManyToManyField()` to linked with desire model.
+
+- **Show models and relationship among them in admin panel** - After establish all relation between models in models.py file we can import all models into admin.py file where we need to create methods which is responsible for displaying data inside the admin page. If we want to show any model data in tabular form inside another model then create a mehtod where we need to use `admin.TabularInline` and mention the model where we want to display tabular data and then declare this tabular data method as a inlines value in the model where the tabular data is to be display. We can decide which data is to be display on admin by useing `list_display` and mention all data field in tuples.
+
+- **Forms in Django** : Forms in django is a huge topic actually but for simplicity we need to elaborate a simple form with help of some steps:
+
+  1. Create a templates to show the forms and then use this templates into urls.py by creating path()
+  2. Create a forms.py file where we need to import `forms` from django and then import a model from which we want to link data into the form field. First create a class with a formname and then use `froms.Form` as a parameter of the class. After that the requirement of field we want in forms we use different method like if we want to use choice selection from a list field inside the form then we use `ModelChoiceField()` where we decide which data to be showen in choice we use `queryset`
+
+- **Connect forms with views** : To connect with form and views we need a method which can help to render the forms as we like. To do this first set the request mehtod whether it is POST or GET or else. Then create a form with help of form class which is declared in the forms.py. Then if the form input data is valid or so to say ``form.is_valid()` returns true then populate the fields or save the field with desire form data and at last return the render with the form.
+
+- **Load the form in templates** - To render or display the form in the html file in a `<form>` block where we need to mention the method(POST or GET). We also need a `csrf_token` to secure the form and then render the form using variable injection like `{{form.as_p}}` Here as_p means view as a paragraph and there are more options like this.
 
 ---
 

@@ -1,0 +1,14 @@
+{% extends "layout.html" %} {% block content %} Test Form
+<form method="POST" class="text-black">
+  {% csrf_token %} {{form.as_p}}
+  <button type="submit" class="text-white">Search DevCommunity</button>
+</form>
+
+{% if communities %}
+<h2>Community Available</h2>
+<ul>
+  {% for community in communities %}
+  <li>{{community.name}} - {{community.language}}</li>
+  {% endfor %}
+</ul>
+{% endif %} {% endblock %}
